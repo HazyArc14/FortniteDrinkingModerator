@@ -5,12 +5,13 @@ var isReady = true;
 var gameInProgress = false;
 
 var zachId = "<@148630426548699136>";
+var kirkID = "<@93140127949287424>";
 var kelsoId = "<@93105200365043712>";
 var loreanId = "<@275384050884280320>";
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
-  "description": "I have been created to guide you through the night. Besides the rules below I will be selecting people at random. When I select someone they will either have to drink or choose someone else to drink, and I will be the one the make that decision!",
+  "description": "I have been created to guide you through this night of celebration and below I have a few drinking rules that you must follow. Besides those rules I will be randomly selecting one person every 5-10 minutes, and when I select that person they will either have to drink or choose someone else to drink. I will be the one the make that decision!",
   "color": 2919500,
   "footer": {
     "text": "Let the Games Begin and Remember to Drink Responsibly!"
@@ -21,7 +22,7 @@ const embed = {
   "fields": [
     {
       "name": "Drinking Rules: (Drink for 5 Seconds Unless Otherwise Specified)",
-      "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 1 Second for Every Kill"
+      "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 5 Seconds for Every Kill\n\nOne Last Note: These rules are can stack. For example if you get implused off a mountain and get knocked, then you have to drink for 10 seconds! :)"
     }
   ]
 };
@@ -66,7 +67,7 @@ function gameLoop(message) {
 
 function makeDrinkDecision(message) {
 
-  switch(Math.floor(Math.random() * 1)) {
+  switch(Math.floor(Math.random() * 2)) {
     case 0:
       tellPlayerToDrink(message);
       break;
@@ -79,18 +80,22 @@ function makeDrinkDecision(message) {
 
 function tellPlayerToDrink(message) {
 
-  switch(Math.floor(Math.random() * 3)) {
+  switch(Math.floor(Math.random() * 4)) {
     case 0:
       message.channel.send("Switch 0");
-      message.channel.send(zachId + "Time to Drink!!!");
+      message.channel.send(zachId + " Time to Drink!!!");
       break;
     case 1:
       message.channel.send("Switch 1");
-      message.channel.send(zachId + "Time to Drink!!!");
+      message.channel.send(zachId + " Time to Drink!!!");
       break;
     case 2:
       message.channel.send("Switch 2");
-      message.channel.send(zachId + "Time to Drink!!!");
+      message.channel.send(zachId + " Time to Drink!!!");
+      break;
+    case 3:
+      message.channel.send("Switch 3");
+      message.channel.send(zachId + " Time to Drink!!!");
       break;
   }
 
@@ -98,20 +103,39 @@ function tellPlayerToDrink(message) {
 
 function tellPlayerToChoose(message) {
 
-  switch(Math.floor(Math.random() * 3)) {
+  switch(Math.floor(Math.random() * 4)) {
     case 0:
       message.channel.send("Switch 0");
-      message.channel.send(zachId + "Choose Who Drinks!!!");
+      message.channel.send(zachId + " Choose Who Drinks!!!");
       break;
     case 1:
       message.channel.send("Switch 1");
-      message.channel.send(zachId + "Choose Who Drinks!!!");
+      message.channel.send(zachId + " Choose Who Drinks!!!");
       break;
     case 2:
       message.channel.send("Switch 2");
-      message.channel.send(zachId + "Choose Who Drinks!!!");
+      message.channel.send(zachId + " Choose Who Drinks!!!");
+      break;
+    case 3:
+      message.channel.send("Switch 3");
+      message.channel.send(zachId + " Choose Who Drinks!!!");
       break;
   }
+
+}
+
+function clearMessages(message) {
+
+  const botID = "483829568218595339";
+
+  message.channel.fetchMessages({
+    limit: 100,
+  }).then((messages) => {
+   
+    messages = messages.filter(m => m.author.id === botID).array();
+    message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+
+  });
 
 }
 
@@ -131,18 +155,11 @@ client.on('message', async message => {
       startGame(message);
 
       setTimeout(() => {
-        message.channel.send(zachId + "Time to Drink!!!");
-        // message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Time to Drink!!!");
+        message.channel.send("How About We Get the Night Started on the Right Foot!");
+        message.channel.send(zachId + " Drink for 10 Seconds!!!")
+        // message.channel.send(zachId + " " + kirkID + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
         gameLoop(message);
       }, 10000);
-
-      // while(gameInProgress) {
-
-      //   setTimeout(() => {
-      //     makeDrinkDecision(message);
-      //   }, timeUntilNextDraw());
-
-      // }
 
     }
 
@@ -151,6 +168,12 @@ client.on('message', async message => {
       gameInProgress = false;
 
       message.channel.send("The Fortnite Drinking Game is Now Over. Thanks for Playing and Good Luck Tomorrow!");
+
+    }
+
+    if (message.content.indexOf('!clear') === 0 && message.author.id == "148630426548699136") {
+
+      clearMessages(message);
 
     }
 
