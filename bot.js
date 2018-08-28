@@ -5,17 +5,11 @@ var isReady = true;
 
 const startGameEmbed = new Discord.RichEmbed()
   .setTitle("Welcome to the Fortnite Drinking Game")
-  .setAuthor(client.user.username, client.user.avatarURL)
-  /*
-   * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-   */
+  .setAuthor("Fortnite Drinking Moderator", "./assets/profile.png")
   .setColor(0x2EEB3E)
   .setDescription("I have been created to guide you through the night.")
   .setFooter("Have Fun and Remember to Drink Responsibly!")
-  .setThumbnail("../assets/drinking.jpg")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
+  .setThumbnail("./assets/drinking.jpg")
   .setTimestamp()
   .addField("This is a field title, it can hold 256 characters",
     "This is a field value, it can hold 2048 characters.")
