@@ -166,6 +166,10 @@ client.on('message', async message => {
     if (message.content.indexOf('!stopGame') === 0 && message.author.id == "148630426548699136") {
 
       gameInProgress = false;
+      
+      message.delete()
+        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+        .catch(console.error);
 
       message.channel.send("The Fortnite Drinking Game is Now Over. Thanks for Playing and Good Luck Tomorrow!");
 
