@@ -166,7 +166,7 @@ client.on('message', async message => {
     if (message.content.indexOf('!stopGame') === 0 && message.author.id == "148630426548699136") {
 
       gameInProgress = false;
-      
+
       message.delete()
         .then(msg => console.log(`Deleted message from ${msg.author.username}`))
         .catch(console.error);
@@ -176,6 +176,10 @@ client.on('message', async message => {
     }
 
     if (message.content.indexOf('!clear') === 0 && message.author.id == "148630426548699136") {
+
+      message.delete()
+        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+        .catch(console.error);
 
       clearMessages(message);
 
