@@ -3,9 +3,13 @@ const client = new Discord.Client();
 
 var isReady = true;
 
+var zachId = 148630426548699136;
+var kelsoId = 93105200365043712;
+var loreanId = 275384050884280320;
+
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
-  "description": "I have been created to guide you through the night. Besides the rules below I will be select people at random. When I select someone they will either have to drink or choose someone to drink, and I will be the one the make that decison!",
+  "description": "I have been created to guide you through the night. Besides the rules below I will be selecting people at random. When I select someone they will either have to drink or choose someone else to drink, and I will be the one the make that decison!",
   "color": 2919500,
   "footer": {
     "text": "Let the Games Begin and Remember to Drink Responsibly!"
@@ -69,6 +73,10 @@ client.on('message', async message => {
 
       startGame(message);
 
+      setTimeout(() => {
+        message.channel.send("```Time to Drink!!!\n@'" + zachId + "'```");
+      }, 20000);
+
       // if (typeof splitMessage[1] === 'undefined') {
       //   triggerAudio(message, "celsoHere", "");
       // } else {
@@ -83,10 +91,10 @@ client.on('message', async message => {
     //     .then(msg => console.log(`Deleted message from ${msg.author.username}`))
     //     .catch(console.error);
 
-    // setTimeout(() => {
-    //     // Allows for the Game Name to be Set After 5 Minutes
-    //     allowStatusUpdate = true;
-    //   }, 300000);
+    setTimeout(() => {
+        // Allows for the Game Name to be Set After 5 Minutes
+        allowStatusUpdate = true;
+      }, 300000);
 
     // try {
     //   voiceChannel.join().then(connection => {
