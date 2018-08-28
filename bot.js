@@ -74,8 +74,8 @@ client.on('message', async message => {
       startGame(message);
 
       setTimeout(() => {
-        message.channel.send("```Time to Drink!!!\n@'" + zachId + "'```");
-      }, 20000);
+        message.channel.send("Time to Drink!!!\n@'" + zachId + "'");
+      }, 2000);
 
       // if (typeof splitMessage[1] === 'undefined') {
       //   triggerAudio(message, "celsoHere", "");
