@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 var isReady = true;
 
-const startGameEmbed = const embed = {
+const startGameEmbed = {
   "title": "Welcome to the Fortnite Drinking Game",
   "description": "I have been created to guide you through the night.",
   "color": 2919500,
