@@ -19,8 +19,8 @@ const embed = {
   },
   "fields": [
     {
-      "name": "Drinking Rules:",
-      "value": "1: Got Knocked? Drink for 2 Seconds\n2: Lorena Killed Someone?!?! Drink 1 Second for Every Kill\n3: Was that a Wick? Drink for 5 Seconds\n4: Forced to Dance? Drink for 2 Seconds\n5: Did You Just Jump Off the Mountain? Drink for 5 Seconds"
+      "name": "Drinking Rules: (Drink for 5 Seconds Unless Otherwise Specified)",
+      "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 1 Second for Every Kill"
     }
   ]
 };
@@ -74,7 +74,7 @@ client.on('message', async message => {
       startGame(message);
 
       setTimeout(() => {
-        message.channel.send("Time to Drink!!!\n<@" + zachId + ">");
+        message.channel.send("Time to Drink!!!\n<@!" + zachId + ">");
       }, 2000);
 
       // if (typeof splitMessage[1] === 'undefined') {
