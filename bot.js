@@ -27,7 +27,7 @@ const embed = {
 };
 
 function timeUntilNextDraw() {
-  // return Math.random() * (600000 - 300000) + 300000;
+  // var returnValue = Math.random() * (600000 - 300000) + 300000;
   var returnValue = Math.random() * (15000 - 5000) + 5000;
   console.log("Next Drawing in " + returnValue);
   return returnValue
@@ -48,6 +48,19 @@ function startGame(message) {
     .catch(console.error);
 
   message.channel.send({ embed });
+
+}
+
+function gameLoop(message) {
+
+  if (gameInProgress) {
+
+    setTimeout(() => {
+      makeDrinkDecision(message);
+      gameLoop(message);
+    }, timeUntilNextDraw());
+
+  }
 
 }
 
@@ -111,45 +124,33 @@ client.on('message', async message => {
   if(message.author.bot) return;
 
   if(isReady) {
-      
-    if (message.content.indexOf('!help') === 0) {
-
-      message.delete()
-        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-        .catch(console.error);
-
-      var helpResponse = "```Commands:\n!startGame```";
-      
-      message.channel.send(helpResponse);
-
-    }
 
     if (message.content.indexOf('!startGame') === 0 && message.author.id == "148630426548699136") {
 
+      gameInProgress = true;
       startGame(message);
 
       setTimeout(() => {
         message.channel.send(zachId + "Time to Drink!!!");
         // message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Time to Drink!!!");
+        gameLoop(message);
       }, 10000);
 
-      gameInProgress = true;
+      // while(gameInProgress) {
 
-      while(gameInProgress) {
+      //   setTimeout(() => {
+      //     makeDrinkDecision(message);
+      //   }, timeUntilNextDraw());
 
-        setTimeout(() => {
-          makeDrinkDecision(message);
-        }, timeUntilNextDraw());
-
-      }
+      // }
 
     }
 
     if (message.content.indexOf('!stopGame') === 0 && message.author.id == "148630426548699136") {
 
-      message.channel.send("The Fortnite Drinking Game is Now Over. Thanks for Playing and Good Luck Tomorrow!");
-
       gameInProgress = false;
+
+      message.channel.send("The Fortnite Drinking Game is Now Over. Thanks for Playing and Good Luck Tomorrow!");
 
     }
 
