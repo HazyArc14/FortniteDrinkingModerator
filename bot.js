@@ -28,7 +28,9 @@ const embed = {
 
 function timeUntilNextDraw() {
   // return Math.random() * (600000 - 300000) + 300000;
-  return Math.random() * (15000 - 5000) + 5000;
+  var returnValue = Math.random() * (15000 - 5000) + 5000;
+  console.log("Next Drawing in " + returnValue);
+  return returnValue
 }
 
 function startGame(message) {
