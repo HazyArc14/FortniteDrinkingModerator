@@ -3,39 +3,23 @@ const client = new Discord.Client();
 
 var isReady = true;
 
-const embed = new Discord.RichEmbed()
-  .setTitle("Welcome to the Fortnite Drinking Game")
-  .setColor(0x2EEB3E)
-  .setDescription("I have been created to guide you through the night.")
-  .setFooter("Have Fun and Remember to Drink Responsibly!")
-  .setThumbnail("./assets/drinking.jpg")
-  .setTimestamp()
-  .addField("This is a field title, it can hold 256 characters",
-    "This is a field value, it can hold 2048 characters.");
-
-const startGameEmbed = new Discord.RichEmbed()
-  .setTitle("Welcome to the Fortnite Drinking Game")
-  .setColor(0x2EEB3E)
-  .setDescription("This is the main body of text, it can hold 2048 characters.")
-  .setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-  .setImage("https://static.hub.game/i/post/469/content/9ffcee5a15019d38.jpg?740-autov1")
-  .setThumbnail("http://i.imgur.com/p2qNFag.png")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
-  .setTimestamp()
-  .setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
-  .addField("This is a field title, it can hold 256 characters",
-    "This is a field value, it can hold 2048 characters.")
-  /*
-   * Inline fields may not display as inline if the thumbnail and/or image is too big.
-   */
-  .addField("Inline Field", "They can also be inline.", true)
-  /*
-   * Blank field, useful to create some space.
-   */
-  .addBlankField(true)
-  .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
+const startGameEmbed = const embed = {
+  "title": "Welcome to the Fortnite Drinking Game",
+  "description": "I have been created to guide you through the night.",
+  "color": 2919500,
+  "footer": {
+    "text": "Have Fun and Remember to Drink Responsibly!"
+  },
+  "image": {
+    "url": "https://static.hub.game/i/post/469/content/9ffcee5a15019d38.jpg?740-autov1"
+  },
+  "fields": [
+    {
+      "name": "Drinking Rules:",
+      "value": "1: \n2: \n3: \n4: \n5:"
+    }
+  ]
+};
 
 function randomWholeNum(value) {
     return Math.floor(Math.random() * value) + 1;
