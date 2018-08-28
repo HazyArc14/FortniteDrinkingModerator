@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 var isReady = true;
 
-const startGameEmbed = {
+const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
   "description": "I have been created to guide you through the night.",
   "color": 2919500,
@@ -39,7 +39,7 @@ function startGame(message) {
     .then(msg => console.log(`Deleted message from ${msg.author.username}`))
     .catch(console.error);
 
-  message.channel.send({startGameEmbed});
+  message.channel.send({ embed });
 
 }
 
