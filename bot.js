@@ -5,10 +5,10 @@ var isReady = true;
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
-  "description": "I have been created to guide you through the night.",
+  "description": "I have been created to guide you through the night. Besides the rules below I will be select people at random. When I select someone they will either have to drink or choose someone to drink, and I will be the one the make that decison!",
   "color": 2919500,
   "footer": {
-    "text": "Have Fun and Remember to Drink Responsibly!"
+    "text": "Let the Games Begin and Remember to Drink Responsibly!"
   },
   "image": {
     "url": "https://static.hub.game/i/post/469/content/9ffcee5a15019d38.jpg?740-autov1"
@@ -16,7 +16,7 @@ const embed = {
   "fields": [
     {
       "name": "Drinking Rules:",
-      "value": "1: \n2: \n3: \n4: \n5:"
+      "value": "1: Got Knocked? Drink for 2 Seconds\n2: Lorena Killed Someone?!?! Drink 1 Second for Every Kill\n3: Was that a Wick? Drink for 5 Seconds\n4: Forced the Dance? Drink for 2 Seconds\n5:"
     }
   ]
 };
