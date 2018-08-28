@@ -5,7 +5,6 @@ var isReady = true;
 
 const startGameEmbed = new Discord.RichEmbed()
   .setTitle("Welcome to the Fortnite Drinking Game")
-  .setAuthor("Fortnite Drinking Moderator", "./assets/profile.png")
   .setColor(0x2EEB3E)
   .setDescription("I have been created to guide you through the night.")
   .setFooter("Have Fun and Remember to Drink Responsibly!")
@@ -23,7 +22,7 @@ const embed = new Discord.RichEmbed()
   .setColor(0x00AE86)
   .setDescription("This is the main body of text, it can hold 2048 characters.")
   .setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
-  .setImage("http://i.imgur.com/yVpymuV.png")
+  .setImage("https://static.hub.game/i/post/469/content/9ffcee5a15019d38.jpg?740-autov1")
   .setThumbnail("http://i.imgur.com/p2qNFag.png")
   /*
    * Takes a Date object, defaults to current date.
