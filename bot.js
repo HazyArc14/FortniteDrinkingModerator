@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 var isReady = true;
 
-var zachId = 148630426548699136;
+var zachId = "<@148630426548699136>";
 var kelsoId = 93105200365043712;
 var loreanId = 275384050884280320;
 
@@ -74,7 +74,7 @@ client.on('message', async message => {
       startGame(message);
 
       setTimeout(() => {
-        message.channel.send("Time to Drink!!!\n@" + zachId);
+        message.channel.send("Time to Drink!!!\n" + zachId);
       }, 2000);
 
       // if (typeof splitMessage[1] === 'undefined') {
