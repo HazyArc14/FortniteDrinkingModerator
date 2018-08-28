@@ -16,7 +16,7 @@ const startGameEmbed = new Discord.RichEmbed()
 
 const embed = new Discord.RichEmbed()
   .setTitle("Welcome to the Fortnite Drinking Game")
-  .setAuthor("Fortnite Drinking Moderator", "./assets/profile.png")
+  .setAuthor("Fortnite Drinking Moderator", "attachment://assets/profile.png")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
