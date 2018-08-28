@@ -2,14 +2,15 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 var isReady = true;
+var gameInProgress = false;
 
 var zachId = "<@148630426548699136>";
-var kelsoId = 93105200365043712;
-var loreanId = 275384050884280320;
+var kelsoId = "<@93105200365043712>";
+var loreanId = "<@275384050884280320>";
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
-  "description": "I have been created to guide you through the night. Besides the rules below I will be selecting people at random. When I select someone they will either have to drink or choose someone else to drink, and I will be the one the make that decison!",
+  "description": "I have been created to guide you through the night. Besides the rules below I will be selecting people at random. When I select someone they will either have to drink or choose someone else to drink, and I will be the one the make that decision!",
   "color": 2919500,
   "footer": {
     "text": "Let the Games Begin and Remember to Drink Responsibly!"
@@ -25,25 +26,77 @@ const embed = {
   ]
 };
 
-function randomWholeNum(value) {
-    return Math.floor(Math.random() * value) + 1;
+function timeUntilNextDraw() {
+  // return Math.random() * (600000 - 300000) + 300000;
+  return Math.random() * (15000 - 5000) + 5000;
 }
 
 function startGame(message) {
 
   client.user.setPresence({
-      game: {
-        name: "Let's Drink!",
-        type: 0
-      }
-    }).then(console.log)
-      .catch(console.error);
+    game: {
+      name: "Let's Drink!",
+      type: 0
+    }
+  }).then(console.log)
+    .catch(console.error);
 
   message.delete()
     .then(msg => console.log(`Deleted message from ${msg.author.username}`))
     .catch(console.error);
 
   message.channel.send({ embed });
+
+}
+
+function makeDrinkDecision(message) {
+
+  switch(Math.floor(Math.random() * 1)) {
+    case 0:
+      tellPlayerToDrink(message);
+      break;
+    case 1:
+      tellPlayerToChoose(message);
+      break;
+  }
+
+}
+
+function tellPlayerToDrink(message) {
+
+  switch(Math.floor(Math.random() * 3)) {
+    case 0:
+      message.channel.send("Switch 0");
+      message.channel.send(zachId + "Time to Drink!!!");
+      break;
+    case 1:
+      message.channel.send("Switch 1");
+      message.channel.send(zachId + "Time to Drink!!!");
+      break;
+    case 2:
+      message.channel.send("Switch 2");
+      message.channel.send(zachId + "Time to Drink!!!");
+      break;
+  }
+
+}
+
+function tellPlayerToChoose(message) {
+
+  switch(Math.floor(Math.random() * 3)) {
+    case 0:
+      message.channel.send("Switch 0");
+      message.channel.send(zachId + "Choose Who Drinks!!!");
+      break;
+    case 1:
+      message.channel.send("Switch 1");
+      message.channel.send(zachId + "Choose Who Drinks!!!");
+      break;
+    case 2:
+      message.channel.send("Switch 2");
+      message.channel.send(zachId + "Choose Who Drinks!!!");
+      break;
+  }
 
 }
 
@@ -74,38 +127,29 @@ client.on('message', async message => {
       startGame(message);
 
       setTimeout(() => {
-        message.channel.send("Time to Drink!!!\n" + zachId);
-      }, 2000);
+        message.channel.send(zachId + "Time to Drink!!!");
+        // message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Time to Drink!!!");
+      }, 10000);
 
-      // if (typeof splitMessage[1] === 'undefined') {
-      //   triggerAudio(message, "celsoHere", "");
-      // } else {
-      //   triggerAudio(message, "celsoHere", splitMessage[1]);
-      // }
+      gameInProgress = true;
+
+      while(gameInProgress) {
+
+        setTimeout(() => {
+          makeDrinkDecision(message);
+        }, timeUntilNextDraw());
+
+      }
 
     }
 
-    // message.channel.send(msgResponse);
+    if (message.content.indexOf('!stopGame') === 0 && message.author.id == "148630426548699136") {
 
-    // message.delete()
-    //     .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-    //     .catch(console.error);
+      message.channel.send("The Fortnite Drinking Game is Now Over. Thanks for Playing and Good Luck Tomorrow!");
 
-    setTimeout(() => {
-        // Allows for the Game Name to be Set After 5 Minutes
-        allowStatusUpdate = true;
-      }, 300000);
+      gameInProgress = false;
 
-    // try {
-    //   voiceChannel.join().then(connection => {
-    //     const dispatcher = connection.playFile("./assets/audio/" + trigger + ".mp3");
-    //     dispatcher.on("end", end => {
-    //         voiceChannel.leave();
-    //     });
-    //   }); 
-    // } catch(err) {
-    //   return;   
-    // }
+    }
 
   }
 
