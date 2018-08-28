@@ -16,7 +16,7 @@ const embed = {
   "fields": [
     {
       "name": "Drinking Rules:",
-      "value": "1: Got Knocked? Drink for 2 Seconds\n2: Lorena Killed Someone?!?! Drink 1 Second for Every Kill\n3: Was that a Wick? Drink for 5 Seconds\n4: Forced the Dance? Drink for 2 Seconds\n5:"
+      "value": "1: Got Knocked? Drink for 2 Seconds\n2: Lorena Killed Someone?!?! Drink 1 Second for Every Kill\n3: Was that a Wick? Drink for 5 Seconds\n4: Forced to Dance? Drink for 2 Seconds\n5: Did You Just Jump Off the Mountain? Drink for 5 Seconds"
     }
   ]
 };
