@@ -29,8 +29,8 @@ function startGame(message) {
       .catch(console.error);
 
   message.delete()
-        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-        .catch(console.error);
+      .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+      .catch(console.error);
 
   message.channel.send({startGameEmbed});
 
@@ -58,7 +58,7 @@ client.on('message', async message => {
 
     if (message.content.indexOf('!startGame') === 0 && message.author.id == "148630426548699136") {
 
-      startGame();
+      startGame(message);
 
       // if (typeof splitMessage[1] === 'undefined') {
       //   triggerAudio(message, "celsoHere", "");
