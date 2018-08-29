@@ -22,7 +22,7 @@ const embed = {
   "fields": [
     {
       "name": "Drinking Rules: (Drink for 5 Seconds Unless Otherwise Specified)",
-      "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 5 Seconds for Every Kill\n\nOne Last Note: These rules are can stack. For example if you get implused off a mountain and get knocked, then you have to drink for 10 seconds! :)"
+      "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 5 Seconds for Every Kill\n\nOne Last Note: These rules can stack. For example if you get implused off a mountain and get knocked, then you have to drink for 10 seconds! :)"
     }
   ]
 };
