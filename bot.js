@@ -154,7 +154,7 @@ function fortniteLoop(message) {
   if (fortnite) {
 
     setTimeout(() => {
-      let data = ft.getInfo(username, platform).then(data => {
+      let data = ft.user(username, platform).then(data => {
         console.log(data);
       }).catch(e => {
         console.log(e);
