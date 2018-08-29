@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
-const Fortnite = require('fortnite');
+const FortniteClient = require('fortnite');
+
 const client = new Discord.Client();
-const ft = new Client(process.env.FORTNITE_TOKEN);
+const ft = new FortniteClient(process.env.FORTNITE_TOKEN);
 
 var isReady = true;
 var gameInProgress = false;
@@ -14,6 +15,8 @@ let loreanId = "<@275384050884280320>";
 
 let username = "HazyArc14";
 let platform = "pc";
+
+let clapGif = "https://media.giphy.com/media/1xo9AsK7FIqdIIlZJF/200w.gif";
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
