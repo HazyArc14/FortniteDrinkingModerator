@@ -216,14 +216,16 @@ client.on('message', async message => {
     }
 
     if (message.content.indexOf('!ft') === 0 && message.author.id == "148630426548699136") {
+      
+      ft.user('HazyArc14', 'pc').then(console.log);
 
-      fortnite = true;
+      // fortnite = true;
 
-      message.delete()
-        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-        .catch(console.error);
+      // message.delete()
+      //   .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+      //   .catch(console.error);
 
-      fortniteLoop(message);
+      // fortniteLoop(message);
 
     }
 
