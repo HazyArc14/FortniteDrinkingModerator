@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const Fortnite = require('fortnite');
 const client = new Discord.Client();
-const ft = new Fortnite(process.env.FORTNITE_TOKEN);
+const ft = new Client(process.env.FORTNITE_TOKEN);
 
 var isReady = true;
 var gameInProgress = false;
