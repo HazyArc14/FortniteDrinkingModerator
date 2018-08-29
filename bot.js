@@ -158,8 +158,8 @@ function fortniteLoop(message) {
         console.log(data);
       }).catch(e => {
         console.log(e);
-        message.channel.send("Player Not Found!").
-      })
+        message.channel.send("Player Not Found!");
+      });
     }, 10000);
 
   }
