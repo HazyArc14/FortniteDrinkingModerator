@@ -1,22 +1,13 @@
 const Discord = require('discord.js');
-const FortniteClient = require('fortnite');
-
 const client = new Discord.Client();
-const ft = new FortniteClient(process.env.FORTNITE_TOKEN);
 
 var isReady = true;
 var gameInProgress = false;
-var fortnite = false;
 
 let zachId = "<@148630426548699136>";
 let kirkID = "<@93140127949287424>";
 let kelsoId = "<@93105200365043712>";
 let loreanId = "<@275384050884280320>";
-
-let username = "HazyArc14";
-let platform = "pc";
-
-let clapGif = "https://media.giphy.com/media/1xo9AsK7FIqdIIlZJF/200w.gif";
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
@@ -152,23 +143,6 @@ function clearMessages(message) {
 
 }
 
-function fortniteLoop(message) {
-
-  if (fortnite) {
-
-    setTimeout(() => {
-      let data = ft.user(username, platform).then(data => {
-        console.log(data);
-      }).catch(e => {
-        console.log(e);
-        message.channel.send("Player Not Found!");
-      });
-    }, 10000);
-
-  }
-
-}
-
 client.on('ready', () => {
     console.log('I am ready!');
 });
@@ -208,30 +182,6 @@ client.on('message', async message => {
     if (message.content.indexOf('!clear') === 0 && message.author.id == "148630426548699136") {
 
       clearMessages(message);
-
-      message.delete()
-        .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-        .catch(console.error);
-
-    }
-
-    if (message.content.indexOf('!ft') === 0 && message.author.id == "148630426548699136") {
-      
-      ft.user('HazyArc14', 'pc').then(console.log);
-
-      // fortnite = true;
-
-      // message.delete()
-      //   .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-      //   .catch(console.error);
-
-      // fortniteLoop(message);
-
-    }
-
-    if (message.content.indexOf('!ftStop') === 0 && message.author.id == "148630426548699136") {
-
-      fortnite = false;
 
       message.delete()
         .then(msg => console.log(`Deleted message from ${msg.author.username}`))
