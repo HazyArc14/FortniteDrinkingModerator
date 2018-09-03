@@ -5,7 +5,6 @@ var isReady = true;
 var gameInProgress = false;
 
 let zachId = "<@148630426548699136>";
-let kirkID = "<@93140127949287424>";
 let kelsoId = "<@93105200365043712>";
 let loreanId = "<@275384050884280320>";
 
@@ -28,8 +27,8 @@ const embed = {
 };
 
 function timeUntilNextDraw() {
-  // var returnValue = Math.random() * (600000 - 300000) + 300000;
-  var returnValue = Math.random() * (15000 - 5000) + 5000;
+  var returnValue = Math.random() * (120000 - 240000) + 240000;
+  // var returnValue = Math.random() * (15000 - 5000) + 5000;
   console.log("Next Drawing in " + returnValue);
   return returnValue
 }
@@ -91,15 +90,11 @@ function tellPlayerToDrink(message) {
       break;
     case 1:
       message.channel.send("Switch 1");
-      message.channel.send(zachId + " Time to Drink!!!");
+      message.channel.send(kelsoId + " Time to Drink!!!");
       break;
     case 2:
       message.channel.send("Switch 2");
-      message.channel.send(zachId + " Time to Drink!!!");
-      break;
-    case 3:
-      message.channel.send("Switch 3");
-      message.channel.send(zachId + " Time to Drink!!!");
+      message.channel.send(loreanId + " Time to Drink!!!");
       break;
   }
 
@@ -114,15 +109,11 @@ function tellPlayerToChoose(message) {
       break;
     case 1:
       message.channel.send("Switch 1");
-      message.channel.send(zachId + " Choose Who Drinks!!!");
+      message.channel.send(kelsoId + " Choose Who Drinks!!!");
       break;
     case 2:
       message.channel.send("Switch 2");
-      message.channel.send(zachId + " Choose Who Drinks!!!");
-      break;
-    case 3:
-      message.channel.send("Switch 3");
-      message.channel.send(zachId + " Choose Who Drinks!!!");
+      message.channel.send(loreanId + " Choose Who Drinks!!!");
       break;
   }
 
@@ -160,8 +151,8 @@ client.on('message', async message => {
 
       setTimeout(() => {
         message.channel.send("How About We Get the Night Started on the Right Foot!");
-        message.channel.send(zachId + " Drink for 10 Seconds!!!")
-        // message.channel.send(zachId + " " + kirkID + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
+        // message.channel.send(zachId + " Drink for 10 Seconds!!!")
+        message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
         gameLoop(message);
       }, 15000);
 
