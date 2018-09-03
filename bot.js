@@ -20,7 +20,7 @@ const embed = {
   },
   "fields": [
     {
-      "name": "Drinking Rules: (Drink for 5 Seconds Unless Otherwise Specified)",
+      "name": "Drinking Rules: (Drink for 2 Seconds Unless Otherwise Specified)",
       "value": "1: Got Knocked?\n2: Did You Just Jump Off the Mountain?\n3: Was that a Wick?\n4: Forced to Dance?\n5: Lorena Killed Someone?!?! Drink 5 Seconds for Every Kill\n\nOne Last Note: These rules can stack. For example if you get implused off a mountain and get knocked, then you have to drink for 10 seconds! :)"
     }
   ]
@@ -83,7 +83,7 @@ function makeDrinkDecision(message) {
 
 function tellPlayerToDrink(message) {
 
-  switch(Math.floor(Math.random() * 4)) {
+  switch(Math.floor(Math.random() * 3)) {
     case 0:
       message.channel.send("Switch 0");
       message.channel.send(zachId + " Time to Drink!!!");
@@ -102,7 +102,7 @@ function tellPlayerToDrink(message) {
 
 function tellPlayerToChoose(message) {
 
-  switch(Math.floor(Math.random() * 4)) {
+  switch(Math.floor(Math.random() * 3)) {
     case 0:
       message.channel.send("Switch 0");
       message.channel.send(zachId + " Choose Who Drinks!!!");
@@ -147,10 +147,10 @@ client.on('message', async message => {
     if (message.content.indexOf('!startGame') === 0 && message.author.id == "148630426548699136") {
 
       gameInProgress = true;
-      startGame(message);
+      // startGame(message);
 
       setTimeout(() => {
-        message.channel.send("How About We Get the Night Started on the Right Foot!");
+        // message.channel.send("How About We Get the Night Started on the Right Foot!");
         // message.channel.send(zachId + " Drink for 10 Seconds!!!")
         message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
         gameLoop(message);
