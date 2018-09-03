@@ -10,7 +10,7 @@ let loreanId = "<@275384050884280320>";
 
 const embed = {
   "title": "Welcome to the Fortnite Drinking Game",
-  "description": "I have been created to guide you through this night of celebration and below I have a few drinking rules that you must follow. Besides those rules I will be randomly selecting one person every 5-10 minutes, and when I select that person they will either have to drink or choose someone else to drink. I will be the one the make that decision!",
+  "description": "I have been created to guide you through this night of celebration and below I have a few drinking rules that you must follow. Besides those rules I will be randomly selecting one person every 2-4 minutes, and when I select that person they will either have to drink or choose someone else to drink. I will be the one the make that decision!",
   "color": 2919500,
   "footer": {
     "text": "Let the Games Begin and Remember to Drink Responsibly!"
