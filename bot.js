@@ -56,7 +56,7 @@ function gameLoop(message) {
   if (gameInProgress) {
 
     setTimeout(() => {
-      makeDrinkDecision(message);
+      tellPlayerToDrink(message);
       gameLoop(message);
     }, timeUntilNextDraw());
 
@@ -85,16 +85,12 @@ function tellPlayerToDrink(message) {
 
   switch(Math.floor(Math.random() * 3)) {
     case 0:
-      message.channel.send("Switch 0");
+      // message.channel.send("Switch 0");
       message.channel.send(zachId + " Time to Drink!!!");
       break;
     case 1:
-      message.channel.send("Switch 1");
+      // message.channel.send("Switch 1");
       message.channel.send(kelsoId + " Time to Drink!!!");
-      break;
-    case 2:
-      message.channel.send("Switch 2");
-      message.channel.send(loreanId + " Time to Drink!!!");
       break;
   }
 
@@ -104,16 +100,12 @@ function tellPlayerToChoose(message) {
 
   switch(Math.floor(Math.random() * 3)) {
     case 0:
-      message.channel.send("Switch 0");
+      // message.channel.send("Switch 0");
       message.channel.send(zachId + " Choose Who Drinks!!!");
       break;
     case 1:
-      message.channel.send("Switch 1");
+      // message.channel.send("Switch 1");
       message.channel.send(kelsoId + " Choose Who Drinks!!!");
-      break;
-    case 2:
-      message.channel.send("Switch 2");
-      message.channel.send(loreanId + " Choose Who Drinks!!!");
       break;
   }
 
@@ -152,7 +144,7 @@ client.on('message', async message => {
       setTimeout(() => {
         // message.channel.send("How About We Get the Night Started on the Right Foot!");
         // message.channel.send(zachId + " Drink for 10 Seconds!!!")
-        message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
+        // message.channel.send(zachId + " " + kelsoId + " " + loreanId + " Drink for 10 Seconds!!!");
         gameLoop(message);
       }, 15000);
 
